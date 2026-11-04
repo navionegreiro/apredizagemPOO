@@ -1,14 +1,14 @@
 
 import java.util.Scanner;
 
-public class App{
+public class App {
     public static void main(String[] args) {
         // declaração da função scanner e da fução car
         Scanner sc = new Scanner(System.in);
         Car[] ft = new Car[2];
-        
+
         int opcao;
-        //laço para a inserção de dados 
+        // laço para a inserção de dados
         for (int i = 0; i < ft.length; i++) {
             ft[i] = new Car();
 
@@ -24,9 +24,8 @@ public class App{
             sc.nextLine();
             ft[i].setCor(sc.nextLine());
 
-            
         }
-        //menu interativo ultilizando o while 
+        // menu interativo ultilizando o while
         do {
             System.out.println("\n======menu======");
             System.out.println("1 --> lista carros.");
@@ -36,22 +35,22 @@ public class App{
             // inseção do valor da opção e a limpeza de buffer
             opcao = sc.nextInt();
             sc.nextLine();
-            // a aplicação de casos para as opções do menu 
+            // a aplicação de casos para as opções do menu
             switch (opcao) {
-                //caso listagem de dados
-                case 1 :
+                // caso listagem de dados
+                case 1:
                     for (int i = 0; i < ft.length; i++) {
                         System.out.println(ft[i].toString());
                     }
                     break;
-                //caso de busca de placa 
+                // caso de busca de placa
                 case 2:
                     System.out.println("digit o nome do carro: ");
                     String placaBuscar = sc.nextLine();
                     boolean encontrou = false;
 
                     for (int i = 0; i < ft.length; i++) {
-                        if (ft[i].getPlaca().equalsIgnoreCase(placaBuscar)){
+                        if (ft[i].getPlaca().equalsIgnoreCase(placaBuscar)) {
                             encontrou = true;
                             System.out.println(ft[i].toString());
 
@@ -62,27 +61,68 @@ public class App{
                     }
 
                     break;
-                // caso editar dados 
+                // caso editar dados
                 case 3:
-                     
-                    String editBuscar = sc.nextLine();
-                    boolean editencontrou = false;
+                    do {
+                        System.out.println("===escolha===");
+                        System.out.println("1 --> editar a placa.");
+                        System.out.println("2 --> editar cor.");
+                        System.out.println("0 --> sair do sistema.");
+                        opcao = sc.nextInt();
+                        sc.nextLine();
 
-                    for (int i = 0; i < ft.length; i++) {
-                        if(ft[i].getPlaca().equalsIgnoreCase(editBuscar));
-                        editencontrou = true;
-                        ft[i].setPlaca(sc.nextLine());
-                    }
+                        switch (opcao) {
+                            case 1:
+                                String plBuscar = sc.nextLine();
+                                boolean plencontrou = false;
+
+                                for (int i = 0; i < ft.length; i++) {
+                                    System.out.println(ft[i].toString());
+
+                                    if (ft[i].getPlaca().equalsIgnoreCase(plBuscar))
+                                        ;
+                                    plencontrou = true;
+
+                                    ft[i].setPlaca(sc.nextLine());
+
+                                    System.out.println("placa alterada.");
+                                    System.out.println(ft[i].toString());
+                                }
+                                break;
+                            case 2:
+                                String corBuscar = sc.nextLine();
+                                boolean corencontrou = false;
+
+                                for (int i = 0; i < ft.length; i++) {
+                                    System.out.println(ft[i].toString());
+
+                                    if (ft[i].getPlaca().equalsIgnoreCase(corBuscar))
+                                        ;
+                                    corencontrou = true;
+
+                                    ft[i].setCor(sc.nextLine());
+
+                                    System.out.println("cor alterada.");
+                                    System.out.println(ft[i].toString());
+                                }
+                                break;
+                            case 0:
+                                System.out.println(" você saiu do sistema.");
+                            default:
+                                throw new AssertionError();
+                        }
+
+                    } while (opcao != 0);
                     break;
-                //caso sair do sistema
-                case 0 :
+                // caso sair do sistema
+                case 0:
                     System.out.println("você saiu do sistema.");
                     break;
                 default:
                     System.out.println("opção invalida !");
                     throw new AssertionError();
             }
-            //while nao permite que o sistema quebre até que opção seja igual a zero 
+            // while nao permite que o sistema quebre até que opção seja igual a zero
         } while (opcao != 0);
         sc.close();
     }
