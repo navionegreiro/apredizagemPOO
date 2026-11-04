@@ -28,8 +28,8 @@ public class App{
 
         do {
             System.out.println("\n======menu======");
-            System.out.println("1--> lista carros.");
-            System.out.println("2-- > pesquisa carro.");
+            System.out.println("1 --> lista carros.");
+            System.out.println("2 --> pesquisa carro.");
             System.out.println("0 --> sair.");
             
             opcao = sc.nextInt();
@@ -40,6 +40,7 @@ public class App{
                     for (int i = 0; i < ft.length; i++) {
                         System.out.println(ft[i].toString());
                     }
+                    break;
                 case 2:
                     System.out.println("digit o nome do carro: ");
                     String placaBuscar = sc.nextLine();
@@ -48,12 +49,15 @@ public class App{
                     for (int i = 0; i < ft.length; i++) {
                         if (ft[i].getPlaca().equalsIgnoreCase(placaBuscar)){
                             encontrou = true;
+                            System.out.println(ft[i].toString());
 
                         }
                     }
                     if (!encontrou) {
                         System.out.println("carro não encontrado !");
                     }
+
+                    break;
                 case 0 :
                     System.out.println("você saiu do sistema.");
                     break;
