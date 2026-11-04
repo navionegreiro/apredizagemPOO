@@ -30,6 +30,7 @@ public class App{
             System.out.println("\n======menu======");
             System.out.println("1 --> lista carros.");
             System.out.println("2 --> pesquisa carro.");
+            System.out.println("3 --> editar placa do carro.");
             System.out.println("0 --> sair.");
             
             opcao = sc.nextInt();
@@ -57,6 +58,16 @@ public class App{
                         System.out.println("carro não encontrado !");
                     }
 
+                    break;
+                case 3:
+                     
+                    String editBuscar = sc.nextLine();
+                    boolean editencontrou = false;
+
+                    for (int i = 0; i < ft.length; i++) {
+                        if(ft[i].getPlaca().equalsIgnoreCase(editBuscar));
+                        editencontrou = true;
+                    }
                     break;
                 case 0 :
                     System.out.println("você saiu do sistema.");
