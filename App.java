@@ -30,7 +30,7 @@ public class App {
             System.out.println("\n======menu======");
             System.out.println("1 --> lista carros.");
             System.out.println("2 --> pesquisa carro.");
-            System.out.println("3 --> editar placa do carro.");
+            System.out.println("3 --> editar  carro.");
             System.out.println("0 --> sair.");
             // inseção do valor da opção e a limpeza de buffer
             opcao = sc.nextInt();
@@ -73,46 +73,52 @@ public class App {
 
                         switch (opcao) {
                             case 1:
+                                System.out.println("digite a placa do que vc quer edita: ");
                                 String plBuscar = sc.nextLine();
                                 boolean plencontrou = false;
 
                                 for (int i = 0; i < ft.length; i++) {
                                     System.out.println(ft[i].toString());
 
-                                    if (ft[i].getPlaca().equalsIgnoreCase(plBuscar))
-                                        ;
+                                    if (ft[i].getPlaca().equalsIgnoreCase(plBuscar)){
+                                        
                                     plencontrou = true;
-
+                                    System.out.println("digite a placa nova: ");
                                     ft[i].setPlaca(sc.nextLine());
 
                                     System.out.println("placa alterada.");
                                     System.out.println(ft[i].toString());
+                                    }
                                 }
                                 break;
                             case 2:
+                                System.out.println("digite a placa do que vc quer edita: ");
                                 String corBuscar = sc.nextLine();
                                 boolean corencontrou = false;
 
                                 for (int i = 0; i < ft.length; i++) {
                                     System.out.println(ft[i].toString());
 
-                                    if (ft[i].getPlaca().equalsIgnoreCase(corBuscar))
-                                        ;
+                                    if (ft[i].getPlaca().equalsIgnoreCase(corBuscar)){
+                                        
                                     corencontrou = true;
-
+                                    System.out.println("digite a cor nova: ");
                                     ft[i].setCor(sc.nextLine());
 
                                     System.out.println("cor alterada.");
                                     System.out.println(ft[i].toString());
+                                    }
+                                
                                 }
                                 break;
-                            case 0:
+                            case 3:
                                 System.out.println(" você saiu do sistema.");
                             default:
+                                System.out.println("opção invalida, tente usar uma opção válida.");
                                 throw new AssertionError();
                         }
 
-                    } while (opcao != 0);
+                    } while (opcao != 3);
                     break;
                 // caso sair do sistema
                 case 0:
