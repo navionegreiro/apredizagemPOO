@@ -31,6 +31,7 @@ public class App {
             System.out.println("1 --> lista carros.");
             System.out.println("2 --> pesquisa carro.");
             System.out.println("3 --> editar  carro.");
+            System.out.println("4 --> remover carro.");
             System.out.println("0 --> sair.");
             // inseção do valor da opção e a limpeza de buffer
             opcao = sc.nextInt();
@@ -45,7 +46,7 @@ public class App {
                     break;
                 // caso de busca de placa
                 case 2:
-                    System.out.println("digit o nome do carro: ");
+                    System.out.println("digit o placa do carro: ");
                     String placaBuscar = sc.nextLine();
                     boolean encontrou = false;
 
@@ -80,14 +81,14 @@ public class App {
                                 for (int i = 0; i < ft.length; i++) {
                                     System.out.println(ft[i].toString());
 
-                                    if (ft[i].getPlaca().equalsIgnoreCase(plBuscar)){
-                                        
-                                    plencontrou = true;
-                                    System.out.println("digite a placa nova: ");
-                                    ft[i].setPlaca(sc.nextLine());
+                                    if (ft[i].getPlaca().equalsIgnoreCase(plBuscar)) {
 
-                                    System.out.println("placa alterada.");
-                                    System.out.println(ft[i].toString());
+                                        plencontrou = true;
+                                        System.out.println("digite a placa nova: ");
+                                        ft[i].setPlaca(sc.nextLine());
+
+                                        System.out.println("placa alterada.");
+                                        System.out.println(ft[i].toString());
                                     }
                                 }
                                 break;
@@ -99,16 +100,16 @@ public class App {
                                 for (int i = 0; i < ft.length; i++) {
                                     System.out.println(ft[i].toString());
 
-                                    if (ft[i].getPlaca().equalsIgnoreCase(corBuscar)){
-                                        
-                                    corencontrou = true;
-                                    System.out.println("digite a cor nova: ");
-                                    ft[i].setCor(sc.nextLine());
+                                    if (ft[i].getPlaca().equalsIgnoreCase(corBuscar)) {
 
-                                    System.out.println("cor alterada.");
-                                    System.out.println(ft[i].toString());
+                                        corencontrou = true;
+                                        System.out.println("digite a cor nova: ");
+                                        ft[i].setCor(sc.nextLine());
+
+                                        System.out.println("cor alterada.");
+                                        System.out.println(ft[i].toString());
                                     }
-                                
+
                                 }
                                 break;
                             case 3:
@@ -119,6 +120,16 @@ public class App {
                         }
 
                     } while (opcao != 3);
+                    break;
+                case 4:
+                    System.out.println("digite a placa do carro que vc quer remover: ");
+                    String plaBuscar = sc.nextLine();
+                    boolean rencontrou = false;
+                    for (int i = 0; i < ft.length; i++) {
+                        if (ft[i].getPlaca().equalsIgnoreCase(plaBuscar)) {
+                                                        
+                        }
+                    }
                     break;
                 // caso sair do sistema
                 case 0:
